@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - United FC</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- TOP WHITE BAR -->
+<div class="top-bar">
+    <div class="auth-buttons">
+        <a href="register.html" class="auth-link register-btn">REGISTER</a>
+        <a href="login.html" class="auth-link">LOGIN</a>
+    </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav id="main-nav">
+    <div class="logo">
+        <a href="home.html">
+            <img src="images/logo.png" alt="United FC">
+        </a>
+        <span>United FC</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="#">▶ WATCH</a></li>
+        <li><a href="team.html">TEAM</a></li>
+        <li><a href="dashboard.html">DASHBOARD</a></li>
+        <li><a href="admin.html">ADMIN</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <div class="user-profile" id="userProfile" style="display: none;">
+            <div class="profile-icon" onclick="toggleProfileDropdown()">👤</div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <p id="userGreeting">Hi, User</p>
+                <button onclick="viewMyApplication()" class="dropdown-btn">View My Application</button>
+                <button onclick="logout()" class="dropdown-btn logout-btn">Logout</button>
+            </div>
+        </div>
+        <div class="search-icon" onclick="toggleSearch()">🔍</div>
+            <input type="text" id="searchBox" placeholder="Search...">
+            <div id="searchResults"></div>
+            
+        <div class="theme-toggle" onclick="toggleDarkMode()">🌙</div>
+        <div class="more-menu" onclick="openMenu()">
+           <button class="menu-icon">
+                <span></span><span></span><span></span>
+                MORE
+            </button>
+        </div>
+    </div>
+</nav>
+    
+
+
+
+
+    <div class="admin-container">
+        <h1>Admin Panel</h1>
+
+        <!-- Tabs -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" onclick="showTab(0)">DASHBOARD PLAYERS</button>
+            <button class="tab-btn" onclick="showTab(1)">TEAM PLAYERS</button>
+            <button class="tab-btn" onclick="showTab(2)">MATCHES MANAGEMENT</button>
+            <button class="tab-btn" onclick="showTab(3)">VIDEOS MANAGEMENT</button>
+            <button class="tab-btn" onclick="showTab(4)">TRIAL APPLICATIONS</button>
+        </div>
+
+        <!-- Dashboard Players Tab -->
+        <div class="admin-tab-content active" id="tab0">
+            <h2>Manage Dashboard Players</h2>
+            <form id="playerForm">
+                <div class="form-grid">
+                    <div><label>Player Name</label><input type="text" id="name" required></div>
+                    <div><label>Position</label>
+                        <select id="position" required>
+                            <option value="Forward">Forward</option>
+                            <option value="Midfielder">Midfielder</option>
+                            <option value="Defender">Defender</option>
+                            <option value="Goalkeeper">Goalkeeper</option>
+                        </select>
+                    </div>
+                    <div><label>Appearances</label><input type="number" id="appearances" value="0" required></div>
+                    <div><label>Minutes Played</label><input type="number" id="minutesPlayed" value="0" required></div>
+                    <div><label>Goals</label><input type="number" id="goals" value="0" required></div>
+                    <div><label>Assists</label><input type="number" id="assists" value="0" required></div>
+                    <div><label>Yellow Cards</label><input type="number" id="yellowCards" value="0" required></div>
+                    <div><label>Red Cards</label><input type="number" id="redCards" value="0" required></div>
+                    <div><label>Injury Status</label><input type="text" id="injury" value="None"></div>
+                    <div><label>Recovery Timeline</label><input type="text" id="recovery" value="N/A"></div>
+                </div>
+                <button type="submit" id="submitBtn">Add New Player</button>
+            </form>
+            <div id="adminPlayersList"></div>
+        </div>
+
+        <!-- Team Players Tab -->
+        <div class="admin-tab-content" id="tab1">
+            <h2>Manage Team Players <span style="font-size:0.9rem;color:#666;">(Shown on Team Page)</span></h2>
+    
+            <form id="teamPlayerForm">
+        <div class="form-grid">
+                    <div><label>Player Name</label><input type="text" id="teamPlayerName" required></div>
+                    <div><label>Position</label><input type="text" id="teamPlayerPosition" required placeholder="e.g. Forward"></div>
+                    <div><label>Matches</label><input type="number" id="teamPlayerMatches" value="0" min="0"></div>
+                    <div><label>Goals</label><input type="number" id="teamPlayerGoals" value="0" min="0"></div>
+                    <div><label>Assists</label><input type="number" id="teamPlayerAssists" value="0" min="0"></div>
+                    
+                    <div><label>Bio (Short)</label><textarea id="teamPlayerBio" rows="3" placeholder="Brief biography..."></textarea></div>
+                    
+                    <!-- New Fields -->
+                    <div><label>Career Highlights (Optional)</label><textarea id="teamPlayerHighlights" rows="3" placeholder="• Academy Graduate&#10;• Top Scorer U-19"></textarea></div>
+                    <div><label>Strengths (Optional)</label><textarea id="teamPlayerStrengths" rows="3" placeholder="Speed, Finishing, Work Rate"></textarea></div>
+                    
+                    <div>
+                        <label>Upload Player Image</label>
+                        <input type="file" id="teamPlayerImage" accept="image/*">
+                        <img id="teamImagePreview" style="max-width:180px; margin-top:10px; display:none; border-radius:8px; border:2px solid #0b2c8f;">
+                    </div>
+                </div>
+                <button type="submit" id="teamSubmitBtn">Add Team Player</button>
+            </form>
+
+            <h3 style="margin-top:40px;">Existing Team Players</h3>
+            <div id="teamPlayersList" class="admin-list"></div>
+        </div>
+
+        <!-- Matches Tab -->
+        <div class="admin-tab-content" id="tab2">
+            <h2>Manage Matches</h2>
+            <form id="matchForm">
+                <div class="form-grid">
+                    <div><label>Date</label><input type="date" id="matchDate" required></div>
+                    <div><label>Time</label><input type="time" id="matchTime"></div>
+                    <div><label>Competition</label><input type="text" id="matchCompetition" required></div>
+                    <div><label>Home Team</label><input type="text" id="homeTeam" value="United FC" required></div>
+                    <div><label>Home Team Logo</label><input type="file" id="homeLogo" accept="image/*"></div>
+                    <div><label>Away Team</label><input type="text" id="awayTeam" required></div>
+                    <div><label>Away Team Logo</label><input type="file" id="awayLogo" accept="image/*"></div>
+                    <div><label>Score (leave empty for upcoming)</label><input type="text" id="matchScore" placeholder="2-1"></div>
+                    <div><label>Venue</label><input type="text" id="matchVenue" required></div>
+                </div>
+                <button type="submit" id="matchSubmitBtn">Add Match</button>
+            </form>
+            <div id="matchesList"></div>
+        </div>
+
+        <!-- Videos Tab -->
+        <div class="admin-tab-content" id="tab3">
+            <h2>Manage Latest Videos</h2>
+            
+            <form id="vidForm">
+                <div class="form-grid">
+                    <div>
+                        <label>Video Title <span style="color:red;">*</span></label>
+                        <input type="text" id="vidTitle" required>
+                    </div>
+                    <div>
+                        <label>Video URL (YouTube - optional)</label>
+                        <input type="text" id="vidUrl" placeholder="https://youtube.com/watch?v=...">
+                    </div>
+                    <div>
+                        <label>Upload Actual Video File <span style="color:red;">*</span></label>
+                        <input type="file" id="vidFile" accept="video/*" required>
+                    </div>
+                    <div>
+                        <label>Thumbnail Image (Optional)</label>
+                        <input type="file" id="vidThumbnail" accept="image/*">
+                        <img id="vidThumbnailPreview" style="max-width:220px; margin-top:10px; display:none; border-radius:8px;">
+                    </div>
+                    <div>
+                        <label>Upload Date <span style="color:red;">*</span></label>
+                        <input type="date" id="vidDate" required>
+                    </div>
+                    <div>
+                        <label>Description (Optional)</label>
+                        <textarea id="vidDescription" rows="5" placeholder="Write a detailed description of the video..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" id="vidSubmitBtn">Add Video</button>
+            </form>
+
+            <h3 style="margin-top:40px;">Existing Videos</h3>
+            <div id="vidList" class="admin-list"></div>
+        </div>
+
+
+        <!-- Tab 4: Trial Applications -->
+        <div class="admin-tab-content" id="tab4">
+            <h2>Trial Applications <span id="appCount" style="font-weight:400; color:#666;"></span></h2>
+            
+            <input type="text" id="searchApplications" placeholder="Search by name or email..." 
+                style="width:100%; max-width:400px; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #ddd;">
+
+            <div id="applicationsList" class="admin-list"></div>
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+    // I have Protect Admin Page
+    document.addEventListener("DOMContentLoaded", function() {
+        if (!isLoggedIn()) {
+            showLoginModal("Admin access requires login.");
+        }
+    });
+    </script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>United FC - Youth Football Academy</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+
+<!-- TOP WHITE BAR -->
+<div class="top-bar">
+    <div class="auth-buttons">
+        <a href="register.html" class="auth-link register-btn">REGISTER</a>
+        <a href="login.html" class="auth-link">LOGIN</a>
+    </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav id="main-nav">
+    <div class="logo">
+        <a href="home.html">
+            <img src="images/logo.png" alt="United FC">
+        </a>
+        <span>United FC</span>
+    </div>
+
+    <ul class="nav-links">
+        <!-- <li><a href="home.html">LATEST</a></li> -->
+        <li><a href="#">▶ WATCH</a></li>
+        <li><a href="team.html">TEAM</a></li>
+        <li><a href="dashboard.html">DASHBOARD</a></li>
+        <li><a href="admin.html">ADMIN</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <div class="user-profile" id="userProfile" style="display: none;">
+            <div class="profile-icon" onclick="toggleProfileDropdown()">👤</div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <p id="userGreeting">Hi, User</p>
+                <button onclick="viewMyApplication()" class="dropdown-btn">View My Application</button>
+                <button onclick="logout()" class="dropdown-btn logout-btn">Logout</button>
+            </div>
+        </div>
+        <div class="search-icon" onclick="toggleSearch()">🔍</div>
+            <input type="text" id="searchBox" placeholder="Search...">
+            <div id="searchResults"></div>
+
+        <div class="theme-toggle" onclick="toggleDarkMode()">🌙</div>
+        <div class="more-menu" onclick="openMenu()">
+            <button class="menu-icon">
+                <span></span><span></span><span></span>
+                MORE
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- CARD SLIDER -->
+<section class="card-slider-section">
+    <h2>United FC Experience</h2>
+    <div class="card-slider">
+        <div class="card-slide active">
+            <img src="images/banner2.jpg" alt="United FC Team">
+            <div class="card-overlay">
+                <h3>Passion • Discipline • Excellence</h3>
+                <p>A youth football club dedicated to developing complete players both on and off the pitch.</p>
+                <a href="team.html" class="btn">Meet The Team →</a>
+            </div>
+        </div>
+
+        <div class="card-slide">
+            <img src="images/banner3.jpg" alt="Academy Trials">
+            <div class="card-overlay">
+                <h3>Academy Trials Now Open</h3>
+                <p>We are searching for the next generation of talented, disciplined young players.</p>
+                <a href="register-trials.html" class="btn">Register for Trials →</a>
+            </div>
+        </div>
+    </div>
+    
+    <button class="slider-arrow left" onclick="prevCardSlide()">←</button>
+    <button class="slider-arrow right" onclick="nextCardSlide()">→</button>
+</section>
+
+<!-- ABOUT UNITED FC -->
+<section class="about-section">
+    <h2>About United FC</h2>
+    <div class="about-content">
+        <p>United Football Club is a youth-focused football organization committed to discovering, developing, and empowering young football talents. Through professional coaching, discipline, and teamwork, we prepare players to compete at the highest levels of the game.</p>
+        
+        <div class="vision-mission">
+            <div class="highlight-box">
+                <h3>Our Vision</h3>
+                <p>To become one of the most respected youth football academies in the country.</p>
+            </div>
+            <div class="highlight-box">
+                <h3>Our Mission</h3>
+                <p>To nurture young talents with world-class training while building character and discipline.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LATEST CLUB NEWS -->
+<section class="news-section">
+    <h2>Latest Club News</h2>
+    <div class="news-grid">
+        
+        <div class="news-card">
+            <h3>Academy Trials Open</h3>
+            <p>United FC invites young players to participate in our upcoming academy trials as we search for the next generation of football stars. Trials will hold on 25th and 26th April 2026.</p>
+            <a href="#" class="read-more">Learn More →</a>
+        </div>
+        
+        <div class="news-card">
+            <h3>New Training Program Launched</h3>
+            <p>Our new player development program focuses on modern football techniques, tactical awareness, and elite fitness training. Sessions begin this month.</p>
+            <a href="#" class="read-more">Learn More →</a>
+        </div>
+        
+        <div class="news-card">
+            <h3>Weekend Match Victory</h3>
+            <p>United FC suffered a 2-0 defeat to AKS Riders in the weekend match. Despite the setback, the team remains focused and is preparing strongly for the next fixture.</p>
+            <a href="#" class="read-more">Learn More →</a>
+        </div>
+        
+    </div>
+</section>
+
+<!-- LATEST VIDEOS -->
+<section class="videos-section">
+    <div class="videos-header">
+        <h2>Latest Videos</h2>
+    </div>
+    <div class="videos-grid" id="videosGrid">
+        <!-- Videos will be populated by JS (static for now) -->
+    </div>
+    <button id="loadMoreVideos" class="load-more-btn">LOAD MORE +</button>
+</section>
+
+<!-- MATCHES SECTION -->
+<section class="matches-section">
+    <div class="matches-header">
+        <h2 class="header">Matches</h2>
+        <!-- Berry, don't touch this part. I comment it out pending when we will need it
+        <div class="matches-tabs">
+            <button class="tab-btn active" data-tab="mens">MEN'S</button>
+            <button class="tab-btn" data-tab="womens">WOMEN'S</button>
+            <button class="tab-btn" data-tab="u21">UNDER-21S</button>
+        </div> -->
+    </div>
+
+    <div class="matches-grid" id="matchesGrid"></div>
+
+    <a href="previous-matches.html" class="btn">View Previous Matches</a>
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>© 2026 United FC. All Rights Reserved.</p>
+        <div class="footer-links">
+            <a href="team.html">Team</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="admin.html">Admin</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Contact Us</a>
+        </div>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top" title="Back to Top">
+    ↑
+</button>
+
+<script src="js/home.js"></script>
+<script src="js/matches.js"></script>
+
+</body>
+</html>

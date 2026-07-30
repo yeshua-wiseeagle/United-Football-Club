@@ -1,0 +1,184 @@
+/* ================= FORCE CAMPTON FONT EVERYWHERE ================= */
+
+/* IMPORT CAMPTON */
+@import url('https://fonts.cdnfonts.com/css/campton');
+
+/* FORCE FONT ON EVERYTHING */
+*{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* BODY */
+body{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* INPUTS */
+input,
+textarea,
+select,
+button{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* PLACEHOLDERS */
+input::placeholder,
+textarea::placeholder{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* NUMBERS + FORM ELEMENTS */
+option,
+label{
+    font-family: 'Campton', sans-serif !important;
+}
+
+
+
+
+
+
+
+
+/* ====================== PLAYER PROFILE PAGE ====================== */
+.player-profile {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.player-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 40px 30px;
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.player-header img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 16px;
+    border: 6px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.player-basic h1 {
+    font-size: 2.8rem;
+    margin: 0 0 8px 0;
+    font-weight: 800;
+}
+
+.player-basic p {
+    font-size: 1.35rem;
+    margin: 0;
+    opacity: 0.95;
+}
+
+/* Stats Section */
+.player-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+    background: #f8f9fa;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    text-align: center;
+    min-width: 140px;
+}
+
+.stat-box h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-box p {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #0b2c8f;
+    margin: 0;
+}
+
+/* Bio Section */
+.player-bio {
+    padding: 50px 40px;
+}
+
+.player-bio h2 {
+    color: #0b2c8f;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #0b2c8f;
+    padding-bottom: 12px;
+    display: inline-block;
+}
+
+.player-bio p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #444;
+    max-width: 900px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .player-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+    
+    .player-header img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .player-stats {
+        gap: 30px;
+        padding: 30px 10px;
+    }
+    
+    .player-bio {
+        padding: 40px 20px;
+    }
+}
+
+
+
+
+
+.player-extra {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 0 40px 50px;
+}
+
+.extra-box {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.extra-box h3 {
+    color: #0b2c8f;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+/* Rest of your previous player.css remains */

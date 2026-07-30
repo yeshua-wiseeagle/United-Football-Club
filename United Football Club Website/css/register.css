@@ -1,0 +1,417 @@
+/* css/register.css - Premium Academy Trials Design */
+/* Background Logo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/logo.png');
+    background-size: 42%;           /* Scaled nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.06;                  /* Very subtle */
+    z-index: -1;
+    pointer-events: none;
+}
+
+
+.trials-hero {
+    height: 580px;
+    background: linear-gradient(rgba(11, 44, 143, 0.82), rgba(11, 44, 143, 0.75)),
+                url('images/trials-hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hero-content p {
+    font-size: 1.45rem;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 10px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* Main Container */
+.trials-container {
+    max-width: 1100px;
+    margin: -80px auto 80px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.form-wrapper {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    padding: 60px 50px;
+    max-width: 820px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-wrapper h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #0b2c8f;
+    margin-bottom: 8px;
+}
+
+
+
+.full-width {
+    max-width: 100%;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Form Fields - Increased Spacing */
+.trials-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: px;                   
+    max-width: 680px;           
+    margin: 0 auto;             
+    text-align: left;
+}
+
+.trials-form .full-width {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+}
+
+.trials-form label {
+    display: block;
+    margin-bottom: 5px;      
+    font-weight: 600;
+    color: #0b2c8f;
+    margin-top: 20px;
+}
+
+.trials-form input,
+.trials-form select,
+.trials-form textarea {
+    width: 680px;
+    padding: 16px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1.02rem;
+    transition: all 0.3s ease;
+    margin-bottom: 4px;
+}
+
+.trials-form input:focus,
+.trials-form select:focus,
+.trials-form textarea:focus {
+    border-color: #0b2c8f;
+    box-shadow: 0 0 0 4px rgba(11, 44, 143, 0.15);
+    outline: none;
+}
+
+/* Extra spacing for the message textarea */
+#message {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.submit-trial-btn {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    padding: 18px 40px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    max-width: 420px;
+    margin: 40px auto 0;
+    display: block;
+    width: 100%;
+}
+
+.submit-trial-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(11, 44, 143, 0.35);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .trials-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-wrapper {
+        padding: 40px 25px;
+        margin-top: -40px;
+    }
+    
+    .trials-hero {
+        height: 420px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+}
+
+
+
+/* ====================== SUCCESS MODAL ====================== */
+.success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+.success-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-content {
+    background: white;
+    padding: 50px 40px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    transform: scale(0.7);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.success-modal.show .success-content {
+    transform: scale(1);
+}
+
+.success-checkmark {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+}
+
+.success-checkmark svg {
+    width: 100%;
+    height: 100%;
+    stroke: #0b2c8f;
+    stroke-width: 3;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: stroke 0.8s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.success-checkmark circle {
+    stroke: #0b2c8f;
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+@keyframes stroke {
+    100% { stroke-dashoffset: 0; }
+}
+
+.success-content h2 {
+    color: #0b2c8f;
+    margin-bottom: 12px;
+}
+
+.success-content p {
+    color: #444;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.success-content .small {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.success-close-btn {
+    margin-top: 25px;
+    padding: 14px 40px;
+    background: #0b2c8f;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.success-close-btn:hover {
+    background: #1e4ab8;
+    transform: translateY(-3px);
+}
+
+
+
+/* Form with Logo on Right 
+.form-with-logo {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 50px;
+    align-items: start;
+}
+
+.form-logo {
+    position: sticky;
+    top: 210px;
+    text-align: center;
+}
+
+.form-logo img {
+    width: 100%;
+    max-width: 260px;
+    opacity: 0.1;      
+    filter: drop-shadow(0 15px 30px rgba(11, 44, 143, 0.2));
+    transform: scale(2);
+}
+
+/* Responsive 
+@media (max-width: 992px) {
+    .form-with-logo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .form-logo {
+        order: -1;
+        position: static;
+    }
+} */
+
+
+
+/* ====================== AUTH PAGES ====================== */
+.auth-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.auth-box {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 50px 45px;
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+}
+
+.auth-box h2 {
+    font-size: 2.4rem;
+    color: #0b2c8f;
+    margin-bottom: 8px;
+}
+
+.auth-box p {
+    color: #555;
+    margin-bottom: 35px;
+}
+
+.auth-box .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+}
+
+.auth-box label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #0b2c8f;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 16px 18px;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    transition: all 0.3s;
+}
+
+.auth-box input:focus {
+    border-color: #0b2c8f;
+    box-shadow: 0 0 0 4px rgba(11, 44, 143, 0.15);
+    outline: none;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 16px;
+    margin-top: 25px;
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.auth-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(11, 44, 143, 0.35);
+}
+
+.switch-text {
+    margin-top: 25px;
+    color: #666;
+}
+
+.switch-text a {
+    color: #0b2c8f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.switch-text a:hover {
+    text-decoration: underline;
+}

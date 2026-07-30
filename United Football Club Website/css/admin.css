@@ -1,0 +1,946 @@
+/* css/admin.css */
+/* ================= FORCE CAMPTON FONT EVERYWHERE ================= */
+
+/* IMPORT CAMPTON */
+@import url('https://fonts.cdnfonts.com/css/campton');
+
+/* FORCE FONT ON EVERYTHING */
+*{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* BODY */
+body{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* INPUTS */
+input,
+textarea,
+select,
+button{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* PLACEHOLDERS */
+input::placeholder,
+textarea::placeholder{
+    font-family: 'Campton', sans-serif !important;
+}
+
+/* NUMBERS + FORM ELEMENTS */
+option,
+label{
+    font-family: 'Campton', sans-serif !important;
+}
+
+
+
+
+.admin-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.tab-btn {
+    padding: 14px 28px;
+    background: #f1f1f1;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: #0b2c8f;
+    color: white;
+}
+
+.admin-tab-content {
+    display: none;
+}
+
+.admin-tab-content.active {
+    display: block;
+}
+
+/* PLAYERS FORM */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.form-grid label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.admin-player-card {
+    background: white;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* ====================== BUTTON STYLING ====================== */
+
+/* Edit & Delete Buttons */
+.admin-player-card button {
+    padding: 10px 22px;
+    margin-left: 12px;
+    border: none;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Campton', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.admin-player-card button:first-child {   /* Edit Button */
+    background: #0b2c8f;
+    color: white;
+}
+
+.admin-player-card button:last-child {    /* Delete Button */
+    background: #e74c3c;
+    color: white;
+}
+
+.admin-player-card button:hover {
+    transform: scale(1.04);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Add New Player Button */
+#submitBtn {
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Campton', sans-serif;
+    margin-top: 5px;
+    margin-bottom: 100px;
+}
+
+#submitBtn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 8px 20px rgba(11, 44, 143, 0.3);
+}
+
+/* Ensure Campton font everywhere in Admin */
+.form-grid input,
+.form-grid select,
+#submitBtn,
+.admin-player-card button,
+.admin-player-card strong {
+    font-family: 'Campton', sans-serif;
+}
+
+
+/* Matches Styling */
+#matchesList {
+    margin-top: 30px;
+}
+
+.match-item {
+    background: white;
+    padding: 18px;
+    margin: 12px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+
+
+/* ====================== TIGHT & CONSISTENT TEAM PLAYERS SECTION ====================== */
+#teamPlayersList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.team-player-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.team-player-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(11, 44, 143, 0.12);
+}
+
+.team-player-card img {
+    width: 95px;
+    height: 95px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+/* Tight Spacing */
+.team-player-info h4 {
+    margin: 4px 0 6px 0;
+    color: #0b2c8f;
+    font-size: 1.32rem;
+}
+
+.team-player-info p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.97rem;
+}
+
+/* Stats line */
+.team-player-info p:nth-of-type(3) {
+    margin: 10px 0 14px 0;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Buttons */
+.edit-btn, .delete-btn {
+    padding: 9px 20px;
+    font-size: 0.96rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 4px 6px 0;
+}
+
+.edit-btn {
+    background: #0b2c8f;
+    color: white;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Empty State */
+#teamPlayersList p {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: #777;
+}
+
+
+
+
+#teamSubmitBtn {
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#teamSubmitBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(11, 44, 143, 0.3);
+}
+
+
+
+
+
+
+/* ====================== TEAM PLAYERS BUTTONS ====================== */
+.edit-btn, .delete-btn {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #001f66, #0b2c8f);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(11, 44, 143, 0.3);
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Team Player Card Styling */
+.team-player-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.3s ease;
+}
+
+.team-player-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.team-player-card img {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #f0f0f0;
+}
+
+.team-player-info h4 {
+    margin: 0 0 4px 0;
+    color: #0b2c8f;
+    font-size: 1.25rem;
+}
+
+.team-player-info p {
+    margin: 4px 0;
+    color: #555;
+}
+
+
+
+
+/* ====================== MODERN ADD TEAM PLAYER FORM ====================== */
+#teamPlayerForm {
+    background: #f8f9fa;
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+#teamPlayerForm h2 {
+    margin-top: 0;
+    color: #0b2c8f;
+    font-size: 1.6rem;
+}
+
+#teamPlayerForm .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+    margin-bottom: 20px;
+}
+
+#teamPlayerForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 0.98rem;
+}
+
+#teamPlayerForm input,
+#teamPlayerForm textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+#teamPlayerForm input:focus,
+#teamPlayerForm textarea:focus {
+    border-color: #0b2c8f;
+    box-shadow: 0 0 0 4px rgba(11, 44, 143, 0.1);
+    outline: none;
+}
+
+#teamPlayerForm textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Submit Button */
+#teamSubmitBtn {
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    padding: 14px 40px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#teamSubmitBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(11, 44, 143, 0.4);
+}
+
+/* Optional: Make image upload area nicer */
+#teamPlayerImage {
+    padding: 8px;
+    background: white;
+    border: 2px dashed #9ca3af;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#teamImagePreview {
+    margin-top: 12px;
+    border-radius: 12px;
+    border: 3px solid #0b2c8f;
+    max-height: 160px;
+}
+
+
+
+
+
+
+
+
+/* ====================== EXISTING VIDEOS - MATCHING TEAM PLAYERS STYLE ====================== */
+#vidList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.video-item {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+    padding: 18px;
+    display: flex;
+    gap: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.video-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(11, 44, 143, 0.15);
+}
+
+.video-item img {
+    width: 140px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.video-info {
+    flex: 1;
+}
+
+.video-info h4 {
+    margin: 0 0 8px 0;
+    color: #0b2c8f;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.video-info p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.video-info button {
+    margin-top: 12px;
+    padding: 8px 18px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.video-info button:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+
+
+/* ====================== VIDEO MANAGEMENT - MODERN STYLING ====================== */
+
+/* Form Styling */
+#vidForm {
+    background: #f8f9fa;
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+#vidForm .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+#vidForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+#vidForm input,
+#vidForm textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#vidForm input:focus,
+#vidForm textarea:focus {
+    border-color: #0b2c8f;
+    box-shadow: 0 0 0 4px rgba(11, 44, 143, 0.1);
+    outline: none;
+}
+
+#vidForm textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* Submit Button */
+#vidSubmitBtn {
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    padding: 14px 40px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+#vidSubmitBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(11, 44, 143, 0.4);
+}
+
+/* Existing Videos List */
+#vidList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.video-item {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.09);
+    padding: 18px;
+    display: flex;
+    gap: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.video-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(11, 44, 143, 0.15);
+}
+
+.video-item img {
+    width: 140px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.video-info {
+    flex: 1;
+}
+
+.video-info h4 {
+    margin: 0 0 8px 0;
+    color: #0b2c8f;
+    font-size: 1.25rem;
+}
+
+.video-info p {
+    margin: 4px 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.video-info button {
+    margin-top: 12px;
+    padding: 8px 18px;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.video-info button:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+/* ====================== MATCHES MANAGEMENT - MODERN STYLING ====================== */
+
+/* Form Styling */
+#matchForm {
+    background: #f8f9fa;
+    padding: 32px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+#matchForm .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+#matchForm label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+#matchForm input,
+#matchForm select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#matchForm input:focus,
+#matchForm select:focus {
+    border-color: #0b2c8f;
+    box-shadow: 0 0 0 4px rgba(11, 44, 143, 0.1);
+    outline: none;
+}
+
+/* Submit Button */
+#matchSubmitBtn {
+    background: linear-gradient(135deg, #0b2c8f, #1e4ab8);
+    color: white;
+    padding: 14px 40px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+#matchSubmitBtn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(11, 44, 143, 0.4);
+}
+
+/* Existing Matches List */
+#matchesList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.match-item {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.match-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+.match-item button {
+    padding: 8px 16px;
+    margin-left: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.match-item button:first-child {
+    background: #0b2c8f;
+    color: white;
+}
+
+.match-item button:last-child {
+    background: #e74c3c;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+/* ====================== TRIAL APPLICATIONS - PROFESSIONAL LOOK ====================== */
+.application-card {
+    background: white;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    transition: all 0.3s ease; 
+}
+
+.app-main {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex: 1;
+}
+
+.application-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.app-info {
+    flex: 1;
+    min-width: 260px;
+}
+
+.app-info strong {
+    font-size: 1.2rem;
+    color: #0b2c8f;
+}
+
+.app-info small {
+    color: #555;
+    display: block;
+    margin-top: 4px;
+}
+
+.app-status {
+    margin-right: 20px;
+}
+
+.status {
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-rejected {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.app-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.app-actions button {
+    padding: 9px 16px;
+    font-size: 0.92rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.app-actions .approve {
+    background: #28a745;
+    color: white;
+}
+
+.app-actions .reject {
+    background: #dc3545;
+    color: white;
+}
+
+.app-actions .delete {
+    background: #6c757d;
+    color: white;
+}
+
+.app-actions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.app-details {
+    color: #555;
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+.app-status .status {
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.status-pending { background: #fff3cd; color: #856404; }
+.status-approved { background: #d4edda; color: #155724; }
+.status-rejected { background: #f8d7da; color: #721c24; }
+
+.btn-action {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.approve { background: #28a745; color: white; }
+.reject { background: #dc3545; color: white; }
+.delete { background: #6c757d; color: white; }
+
+.btn-action:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+.profile-dropdown {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  width: 220px;
+  padding: 8px 0;
+  display: none;
+  z-index: 1000;
+}

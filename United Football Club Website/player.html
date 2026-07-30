@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Profile - United FC</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/player.css">
+</head>
+<body>
+
+    <!-- TOP WHITE BAR -->
+<div class="top-bar">
+    <div class="auth-buttons">
+        <a href="register.html" class="auth-link register-btn">REGISTER</a>
+        <a href="login.html" class="auth-link">LOGIN</a>
+    </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav id="main-nav">
+    <div class="logo">
+        <a href="home.html">
+            <img src="images/logo.png" alt="United FC">
+        </a>
+        <span>United FC</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="#">▶ WATCH</a></li>
+        <li><a href="team.html">TEAM</a></li>
+        <li><a href="dashboard.html">DASHBOARD</a></li>
+        <li><a href="admin.html">ADMIN</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <div class="user-profile" id="userProfile" style="display: none;">
+            <div class="profile-icon" onclick="toggleProfileDropdown()">👤</div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <p id="userGreeting">Hi, User</p>
+                <button onclick="viewMyApplication()" class="dropdown-btn">View My Application</button>
+                <button onclick="logout()" class="dropdown-btn logout-btn">Logout</button>
+            </div>
+        </div>
+        <div class="search-icon" onclick="toggleSearch()">🔍</div>
+            <input type="text" id="searchBox" placeholder="Search...">
+            <div id="searchResults"></div>
+
+        <div class="theme-toggle" onclick="toggleDarkMode()">🌙</div>
+        <div class="more-menu" onclick="openMenu()">
+            <button class="menu-icon">
+                <span></span><span></span><span></span>
+                MORE
+            </button>
+        </div>
+    </div>
+</nav>
+
+    <div class="player-profile">
+        <div class="player-header">
+            <img id="playerImage" src="images/default-player.png" alt="Player">
+            <div class="player-basic">
+                <h1 id="playerName">Player Name</h1>
+                <p id="playerPosition">Position</p>
+            </div>
+        </div>
+
+        <div class="player-stats">
+            <div class="stat-box">
+                <h3>Matches</h3>
+                <p id="matches">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Goals</h3>
+                <p id="goals">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Assists</h3>
+                <p id="assists">0</p>
+            </div>
+        </div>
+
+        <div class="player-bio">
+            <h2>Biography</h2>
+            <p id="playerBio">Loading player information...</p>
+        </div>
+
+        <div class="player-extra">
+            <div class="extra-box">
+                <h3>Career Highlights</h3>
+                <p id="playerHighlights">No highlights added yet.</p>
+            </div>
+            <div class="extra-box">
+                <h3>Strengths</h3>
+                <p id="playerStrengths">No strengths added yet.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/player.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

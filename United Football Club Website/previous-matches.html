@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Matches - United FC</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/matches.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+   <!-- TOP WHITE BAR -->
+<div class="top-bar">
+    <div class="auth-buttons">
+        <a href="register.html" class="auth-link register-btn">REGISTER</a>
+        <a href="login.html" class="auth-link">LOGIN</a>
+    </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav id="main-nav">
+    <div class="logo">
+        <a href="home.html">
+            <img src="images/logo.png" alt="United FC">
+        </a>
+        <span>United FC</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="#">▶ WATCH</a></li>
+        <li><a href="team.html">TEAM</a></li>
+        <li><a href="dashboard.html">DASHBOARD</a></li>
+        <li><a href="admin.html">ADMIN</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <div class="user-profile" id="userProfile" style="display: none;">
+            <div class="profile-icon" onclick="toggleProfileDropdown()">👤</div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <p id="userGreeting">Hi, User</p>
+                <button onclick="viewMyApplication()" class="dropdown-btn">View My Application</button>
+                <button onclick="logout()" class="dropdown-btn logout-btn">Logout</button>
+            </div>
+        </div>
+        <div class="search-icon" onclick="toggleSearch()">🔍</div>
+            <input type="text" id="searchBox" placeholder="Search...">
+            <div id="searchResults"></div>
+
+        <div class="theme-toggle" onclick="toggleDarkMode()">🌙</div>
+        <div class="more-menu" onclick="openMenu()">
+            <button class="menu-icon">
+                <span></span><span></span><span></span>
+                MORE
+            </button>
+        </div>
+    </div>
+</nav>
+
+<section class="previous-matches">
+    <div class="page-header">
+        <h1>Previous Matches</h1>
+        <div class="controls">
+            <select id="sortPrevious">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="home">Home Team (A-Z)</option>
+                <option value="away">Away Team (A-Z)</option>
+                <option value="competition">Competition (A-Z)</option>
+</select>
+
+                
+            </select>
+            <button id="backBtn" onclick="window.history.back()">← Back</button>
+        </div>
+    </div>
+
+    <div class="matches-grid" id="previousMatchesGrid"></div>
+
+    <button id="viewMoreBtn" class="btn">View More</button>
+</section>
+
+    
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+<script src="js/matches.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

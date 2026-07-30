@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - United FC</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/register.css">
+</head>
+<body>
+
+    <nav id="main-nav">
+    <div class="logo">
+        <a href="home.html">
+            <img src="images/logo.png" alt="United FC">
+        </a>
+        <span>United FC</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="#">▶ WATCH</a></li>
+        <li><a href="team.html">TEAM</a></li>
+        <li><a href="dashboard.html">DASHBOARD</a></li>
+        <li><a href="admin.html">ADMIN</a></li>
+    </ul>
+
+    <div class="nav-icons">
+        <div class="search-icon" onclick="toggleSearch()">🔍</div>
+            <input type="text" id="searchBox" placeholder="Search...">
+            <div id="searchResults"></div>
+
+        <div class="theme-toggle" onclick="toggleDarkMode()">🌙</div>
+        <!-- <div class="more-menu" onclick="openMenu()">
+            <div class="menu-icon">
+                <span></span><span></span><span></span>
+            </div>
+            <p>MORE</p>
+        </div> -->
+    </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Welcome Back</h2>
+            <p>Sign in to your United FC account</p>
+            
+            <form id="loginForm">
+                <div>
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="auth-btn">LOGIN</button>
+            </form>
+            
+            <p class="switch-text">Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
